@@ -5,18 +5,18 @@
 
 makeCacheMatrix <- function(x = matrix()) {
 	z <- NULL #z will represent the inverse matrix. It starts as NULL to represent there being no cached data
-	set_matrix <- function(y) { ##set_matrix can change the matrix being used by makeCacheMatrix (x = matrix()) to another matrix.
-	                            ##This resets the value of z to NULL so cacheSolve will know to not used cached data, and instead 
-	                            ##re-calculates
+	set_matrix <- function(y) { ##set_matrix can change the matrix being used by makeCacheMatrix (x = matrix()) to another 
+				    ##matrix. This resets the value of z to NULL so cacheSolve will know to not used cached 
+				    ##data, and instead re-calculates
 		x <<- y					
 		z <<- NULL
 	}
 	get_matrix <- function() { ##get_matrix returns x = matrix()
 		x
 	}
-	set_solve <- function(inverse) {##set_solve changes the value of z to the inverse matrix calculated later in cacheSolve and 
-	                                ##stores it as z. This information is now cached and can be re-used in later iterations
-	                                ##without re-calculating
+	set_solve <- function(inverse) {##set_solve changes the value of z to the inverse matrix calculated later in cacheSolve 
+					##and stores it as z. This information is now cached and can be re-used in later
+					##iterations without re-calculating
 		z <- inverse			
 	}
 	get_solve <- function() {##get_solve returns the inverse matrix calculated in cacheSolve
